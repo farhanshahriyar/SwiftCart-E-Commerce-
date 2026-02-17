@@ -64,8 +64,6 @@ https://fakestoreapi.com/products/1
 ---
 #### 7) Create a README file to answer the following questions-
 
-> **⚠️ Warning:** Do not use any AI tools to answer these questions. You must write the answers in **Bangla**.
-
 #### 1) What is the difference between `null` and `undefined`?
 `undefined` মানে হলো একটি ভেরিয়েবল ডিক্লেয়ার করা হয়েছে কিন্তু তাতে কোনো মান (value) অ্যাসাইন করা হয়নি। অন্যদিকে, `null` হলো একটি অ্যাসাইন করা মান যা নির্দেশ করে যে ভেরিয়েবলটি ইচ্ছাকৃতভাবে খালি বা "কিছুই না" রাখা হয়েছে।
 
