@@ -1,8 +1,5 @@
 ## ASSIGNMENT (SwiftCart E-Commerce)
 
-
-## Repository: Create your own public repository and submit the link.
-
 ---
 ## 🛍️ API Endpoints
 ---
