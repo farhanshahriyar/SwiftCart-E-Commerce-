@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwiftCart - Your Best Shopping Destination</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#4F46E5', // Indigo 600
+                        secondary: '#10B981', // Emerald 500
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 text-2xl font-bold text-primary">
+                <i class="fa-solid fa-bag-shopping"></i> SwiftCart
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex gap-8 text-gray-600 font-medium">
+                <a href="index.html" class="text-primary font-bold transition">Home</a>
+                <a href="products.html" class="hover:text-primary transition">Products</a>
+                <a href="#about" class="hover:text-primary transition">About</a>
+                <a href="#contact" class="hover:text-primary transition">Contact</a>
+            </div>
+
+            <!-- Cart Icon & Mobile Menu Button -->
+            <div class="flex items-center gap-4">
+                <button id="cart-btn" class="relative hover:text-primary transition">
+                    <i class="fa-solid fa-cart-shopping text-xl"></i>
+                    <span id="cart-count"
+                        class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                </button>
+                <button id="mobile-menu-btn" class="md:hidden text-2xl hover:text-primary transition">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t p-4 flex flex-col gap-4">
+            <a href="index.html" class="hover:text-primary transition">Home</a>
+            <a href="products.html" class="hover:text-primary transition">Products</a>
+            <a href="#about" class="hover:text-primary transition">About</a>
+            <a href="#contact" class="hover:text-primary transition">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative bg-gray-900 text-white overflow-hidden h-[500px] flex items-center">
+        <div class="absolute inset-0">
+            <img src="./Assets/banner-image.png" alt="Shopping Banner" class="w-full h-full object-cover opacity-50">
+        </div>
+        <div class="relative container mx-auto px-4 flex flex-col items-start text-left">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg leading-tight">Best Collection <br> For You
+            </h1>
+            <p class="text-lg md:text-xl mb-8 max-w-xl drop-shadow-md text-gray-200">Discover the latest trends in
+                fashion, electronics, and more. Shop with confidence and style at SwiftCart.</p>
+            <a href="products.html"
+                class="bg-primary hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg transition shadow-lg">
+                Shop Now
+            </a>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900">Why Choose Us</h2>
+                <p class="text-gray-500 mt-2">We provide the best shopping experience with top-notch services.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature 1 -->
+                <div
+                    class="p-6 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition text-left">
+                    <div class="w-12 h-12 bg-blue-50 text-primary rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-truck-fast text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-gray-900">Fast Delivery</h3>
+                    <p class="text-sm text-gray-500">Get your orders delivered to your doorstep quickly and efficiently.
+                    </p>
+                </div>
+                <!-- Feature 2 -->
+                <div
+                    class="p-6 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition text-left">
+                    <div class="w-12 h-12 bg-blue-50 text-primary rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-headset text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-gray-900">24/7 Support</h3>
+                    <p class="text-sm text-gray-500">Our support team is available around the clock to assist you.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div
+                    class="p-6 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition text-left">
+                    <div class="w-12 h-12 bg-blue-50 text-primary rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-shield-halved text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-gray-900">Secure Payment</h3>
+                    <p class="text-sm text-gray-500">Experience safe and secure transactions with our encrypted payment
+                        systems.</p>
+                </div>
+                <!-- Feature 4 -->
+                <div
+                    class="p-6 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition text-left">
+                    <div class="w-12 h-12 bg-blue-50 text-primary rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-rotate-left text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-gray-900">Easy Returns</h3>
+                    <p class="text-sm text-gray-500">Not satisfied? Return your products easily within 30 days.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <img src="./Assets/banner-image.png" alt="Our Story"
+                        class="rounded-2xl shadow-lg w-full h-[400px] object-cover">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">About SwiftCart</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        At SwiftCart, we believe shopping should be effortless, swift, and enjoyable. Founded in 2026,
+                        we've curated a collection of top-tier products ranging from cutting-edge electronics to the
+                        latest fashion trends.
+                        Our mission is to bring quality and style directly to your doorstep with unmatched speed and
+                        reliability.
+                    </p>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center gap-3 text-gray-700"><i
+                                class="fa-solid fa-check text-secondary"></i> Premium Quality Products</li>
+                        <li class="flex items-center gap-3 text-gray-700"><i
+                                class="fa-solid fa-check text-secondary"></i> 30-Day Money Back Guarantee</li>
+                        <li class="flex items-center gap-3 text-gray-700"><i
+                                class="fa-solid fa-check text-secondary"></i> Over 50,000 Happy Customers</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Rated Section (Trending) -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800">Trending Products</h2>
+                <p class="text-gray-600 mt-2">Top rated items tailored for you</p>
+            </div>
+            <!-- Loading Spinner -->
+            <div id="loading-trending" class="flex justify-center hidden">
+                <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+            </div>
+            <!-- Grid -->
+            <div id="trending-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Trending items will be injected here via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800">Get In Touch</h2>
+                <p class="text-gray-600 mt-2">Have questions? We'd love to hear from you.</p>
+            </div>
+            <div class="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                <form onsubmit="event.preventDefault(); alert('Message sent successfully!');" class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                            <input type="text" placeholder="John Doe"
+                                class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-primary focus:border-primary outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" placeholder="john@example.com"
+                                class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-primary focus:border-primary outline-none transition">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                        <textarea rows="4" placeholder="How can we help you?"
+                            class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"></textarea>
+                    </div>
+                    <button type="submit"
+                        class="w-full bg-primary hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition shadow-lg">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Brand -->
+                <div>
+                    <a href="#" class="text-2xl font-bold text-white flex items-center gap-2 mb-4">
+                        <i class="fa-solid fa-bag-shopping"></i> SwiftCart
+                    </a>
+                    <p class="text-sm leading-relaxed">SwiftCart is your one-stop shop for all things trendy. We provide
+                        high-quality products at the best prices with super fast delivery.</p>
+                </div>
+                <!-- Links -->
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="hover:text-primary transition">Home</a></li>
+                        <li><a href="products.html" class="hover:text-primary transition">Products</a></li>
+                        <li><a href="#about" class="hover:text-primary transition">About Us</a></li>
+                        <li><a href="#contact" class="hover:text-primary transition">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-4">Newsletter</h4>
+                    <p class="text-sm mb-4">Subscribe to our newsletter for latest updates and offers.</p>
+                    <form onsubmit="event.preventDefault();" class="flex">
+                        <input type="email" placeholder="Your email"
+                            class="w-full px-4 py-2 rounded-l-lg bg-gray-800 border-none focus:ring-2 focus:ring-primary text-white outline-none">
+                        <button
+                            class="bg-primary hover:bg-indigo-700 text-white px-4 py-2 rounded-r-lg font-bold transition">Subscribe</button>
+                    </form>
+                    <div class="flex gap-4 mt-6">
+                        <a href="#" class="text-xl hover:text-white transition"><i
+                                class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="text-xl hover:text-white transition"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="text-xl hover:text-white transition"><i
+                                class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="text-xl hover:text-white transition"><i
+                                class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-sm">
+                &copy; 2026 SwiftCart. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Details Modal -->
+    <div id="product-modal" class="fixed inset-0 z-50 overflow-y-auto hidden" aria-labelledby="modal-title"
+        role="dialog" aria-modal="true">
+        <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+            <!-- Background overlay -->
+            <div class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75" aria-hidden="true"
+                id="modal-overlay"></div>
+
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+            <div
+                class="inline-block w-full max-w-2xl p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl relative">
+                <!-- Close Button -->
+                <button id="close-modal-btn"
+                    class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition text-2xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Image -->
+                    <div class="flex items-center justify-center p-4 bg-gray-50 rounded-lg">
+                        <img id="modal-image" src="" alt="Product" class="max-h-64 object-contain">
+                    </div>
+                    <!-- Content -->
+                    <div class="flex flex-col">
+                        <span id="modal-category"
+                            class="inline-block px-3 py-1 mb-2 text-xs font-semibold tracking-wider text-primary uppercase bg-indigo-50 rounded-full w-max">Category</span>
+                        <h3 id="modal-title" class="text-2xl font-bold text-gray-900 mb-2 leading-tight">Product Title
+                        </h3>
+                        <div class="flex items-center mb-4">
+                            <div class="text-yellow-400 text-sm mr-2" id="modal-stars">
+                                <!-- Stars injected via JS -->
+                            </div>
+                            <span class="text-gray-500 text-sm" id="modal-rating-count">(100 reviews)</span>
+                        </div>
+                        <p id="modal-price" class="text-3xl font-bold text-gray-900 mb-4">$0.00</p>
+                        <p id="modal-description" class="text-gray-600 text-sm mb-6 flex-grow overflow-y-auto max-h-32">
+                            Description goes here...</p>
+
+                        <div class="mt-auto">
+                            <button id="modal-add-to-cart-btn"
+                                class="w-full bg-primary hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar (Bonus) -->
+    <div id="cart-sidebar"
+        class="fixed inset-y-0 right-0 z-50 w-full md:w-96 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="flex flex-col h-full">
+            <div class="p-4 border-b flex justify-between items-center bg-gray-50">
+                <h2 class="text-xl font-bold flex items-center gap-2">
+                    <i class="fa-solid fa-cart-shopping text-primary"></i> Your Cart
+                </h2>
+                <button id="close-cart-btn" class="text-gray-500 hover:text-red-500 transition text-xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div id="cart-items" class="flex-1 overflow-y-auto p-4 space-y-4">
+                <!-- Cart items injected here -->
+                <div class="text-center text-gray-500 mt-10">Your cart is empty.</div>
+            </div>
+
+            <div class="p-4 border-t bg-gray-50">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-lg font-semibold">Total</span>
+                    <span id="cart-total" class="text-2xl font-bold text-primary">$0.00</span>
+                </div>
+                <button
+                    class="w-full bg-primary hover:bg-indigo-700 text-white font-bold py-3 rounded-lg transition shadow-lg">
+                    Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Cart Overlay -->
+    <div id="cart-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden transition-opacity"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
